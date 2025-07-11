@@ -4,6 +4,7 @@ import { globalErrorHandler } from "./middlewares/error";
 
 import authRoutes from "./modules/auth/auth.route";
 import userRoutes from "./modules/user/user.route";
+import chatRoutes from "./modules/chat/chat.route";
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 //routes
 app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
+app.use("/chatroom", chatRoutes);
 
 app.use((_req, res) => {
   res.status(404).json({ message: "Route not found" });

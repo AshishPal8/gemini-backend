@@ -9,6 +9,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  user
+  model
+}
+
 model User {
   id         Int     @id @default(autoincrement())
   name       String
@@ -18,6 +23,31 @@ model User {
 
   otp          String?
   otpExpiresAt DateTime?
+
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Chatroom  Chatroom[]
+}
+
+model Chatroom {
+  id     Int     @id @default(autoincrement())
+  userId Int
+  name   String?
+
+  user     User      @relation(fields: [userId], references: [id])
+  messages Message[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id         Int    @id @default(autoincrement())
+  chatroomId Int
+  role       Role
+  content    String
+
+  chatroom Chatroom @relation(fields: [chatroomId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
