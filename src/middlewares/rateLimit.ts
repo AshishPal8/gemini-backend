@@ -35,7 +35,7 @@ export const rateLimit = async (
     return next();
   }
 
-  const dailyLimit = 2;
+  const dailyLimit = 5;
 
   if (user.dailyUsageCount >= dailyLimit) {
     return res
