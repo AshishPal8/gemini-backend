@@ -1,4 +1,4 @@
-import { BadRequestError, UnauthorizedError } from "../../middlewares/error";
+import { UnauthorizedError } from "../../middlewares/error";
 import { prisma } from "../../utils/db";
 
 export const subscriptionStatusService = async (userId: number) => {
