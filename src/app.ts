@@ -13,6 +13,18 @@ dotenv.config();
 
 export const app = express();
 
+app.get("/success", (req, res) => {
+  res.send(
+    "<h2>Subscription Completed</h2><p>You now have Pro access. You can close this tab.</p>"
+  );
+});
+
+app.get("/cancel", (req, res) => {
+  res.send(
+    "<h2>Subscription Canceled</h2><p>No payment was made. Feel free to try again.</p>"
+  );
+});
+
 app.use("/webhook", express.raw({ type: "application/json" }), webHookRoutes);
 
 app.use(express.json());
