@@ -9,7 +9,7 @@ export const subscribeProController = async (
   try {
     const userId = Number(req.user?.id);
     const url = await subscribeProService(userId);
-    res.status(200).json({ url });
+    return res.status(200).json({ url });
   } catch (error) {
     next(error);
   }

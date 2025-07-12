@@ -9,7 +9,7 @@ export const subscriptionStatusController = async (
   try {
     const userId = Number(req.user?.id);
     const status = await subscriptionStatusService(userId);
-    res.status(200).json(status);
+    return res.status(200).json(status);
   } catch (error) {
     next(error);
   }

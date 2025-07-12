@@ -12,7 +12,7 @@ export const stripeWebhookController = async (
 
     const result = await stripWebhookService(rawBody, sig);
 
-    res.status(200).send(result);
+    return res.status(200).send(result);
   } catch (error) {
     next(error);
   }
