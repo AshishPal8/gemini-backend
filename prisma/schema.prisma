@@ -22,6 +22,10 @@ model User {
   otp          String?
   otpExpiresAt DateTime?
 
+  subscription    String    @default("BASIC")
+  dailyUsageCount Int       @default(0)
+  lastUsedAt      DateTime?
+
   createdAt DateTime   @default(now())
   updatedAt DateTime   @updatedAt
   Chatroom  Chatroom[]

@@ -31,6 +31,7 @@
     "jsonwebtoken": "^9.0.2",
     "node-cache": "^5.1.2",
     "prisma": "^6.11.1",
+    "stripe": "^18.3.0",
     "zod": "^4.0.5"
   }
 }
