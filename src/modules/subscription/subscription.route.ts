@@ -4,6 +4,6 @@ import { subscriptionStatusController } from "./subscription.controller";
 
 const router = Router();
 
-router.post("/status", authMiddleware, subscriptionStatusController);
+router.get("/status", authMiddleware, subscriptionStatusController);
 
 export default router;
